@@ -1,5 +1,6 @@
 package com.balnave.selenium.ide;
 
+import com.balnave.selenium.steps.Step;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
 public class Selenium1Parser implements SeleneseParser {
 
     @Override
-    public List<Object> parse(String content) {
+    public List<Step> parse(String content) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

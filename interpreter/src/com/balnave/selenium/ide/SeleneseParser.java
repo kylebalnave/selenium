@@ -1,5 +1,6 @@
 package com.balnave.selenium.ide;
 
+import com.balnave.selenium.steps.Step;
 import java.util.List;
 
 /**
@@ -8,6 +9,6 @@ import java.util.List;
  */
 public interface SeleneseParser {
     
-    public List<Object> parse(String content);
+    public List<Step> parse(String content);
     
 }
