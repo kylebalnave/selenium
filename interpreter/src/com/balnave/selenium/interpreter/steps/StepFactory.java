@@ -13,11 +13,19 @@ package com.balnave.selenium.interpreter.steps;
 public class StepFactory {
     
     public IStep buildStep(String[] args) {
-        return buildStep(args[0], args[1], args[2]);
+        String stepName = args[0];
+        if(stepName.equals("open")) {
+            return new OpenStep(args);
+        }
+        return null;
     }
     
     public IStep buildStep(String stepName, String param1, String param2) {
-        return null;
+        String[] args = new String[3];
+        args[0] = stepName;
+        args[1] = param1;
+        args[2] = param2;
+        return buildStep(args);
     }
     
 }
