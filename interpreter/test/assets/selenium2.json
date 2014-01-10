@@ -1,3 +1,22 @@
 {
-    "name": "kyleb2"
+  "seleniumVersion": "2",
+  "formatVersion": 1,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://www.sebuilder.com/"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "link text",
+        "value": "Apache 2 License"
+      }
+    },
+    {
+      "type": "verifyTextPresent",
+      "negated": true,
+      "text": "Closed Source Software"
+    }
+  ]
 }

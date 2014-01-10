@@ -3,15 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.balnave.selenium.interpreter.ide;
 
 import com.balnave.selenium.steps.IStep;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,39 +15,47 @@ import static org.junit.Assert.*;
  * @author kyleb2
  */
 public class Selenium2ParserTest {
-    
-    public Selenium2ParserTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+
+    protected String validContent = "{\n"
+            + "  \"seleniumVersion\": \"2\",\n"
+            + "  \"formatVersion\": 1,\n"
+            + "  \"steps\": [\n"
+            + "    {\n"
+            + "      \"type\": \"get\",\n"
+            + "      \"url\": \"http://www.sebuilder.com/\"\n"
+            + "    },\n"
+            + "    {\n"
+            + "      \"type\": \"clickElement\",\n"
+            + "      \"locator\": {\n"
+            + "        \"type\": \"link text\",\n"
+            + "        \"value\": \"Apache 2 License\"\n"
+            + "      }\n"
+            + "    },\n"
+            + "    {\n"
+            + "      \"type\": \"verifyTextPresent\",\n"
+            + "      \"negated\": true,\n"
+            + "      \"text\": \"Closed Source Software\"\n"
+            + "    }\n"
+            + "  ]\n"
+            + "}";
 
     /**
-     * Test of parse method, of class Selenium2Parser.
+     * Test of parse method, of class Selenium1Parser.
      */
     @Test
-    public void testParse() {
-        System.out.println("parse");
-        String content = "";
+    public void testParseValidFile() {
+        System.out.println("testParseValidFile");
         Selenium2Parser instance = new Selenium2Parser();
-        List<IStep> expResult = null;
-        List<IStep> result = instance.parse(content);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<IStep> result = instance.parse(validContent);
+        assertTrue(result.size() > 0);
     }
-    
+
+    @Test
+    public void testParseInValidFile() {
+        System.out.println("testParseInValidFile");
+        Selenium2Parser instance = new Selenium2Parser();
+        List<IStep> result = instance.parse("");
+        assertTrue(result.isEmpty());
+    }
+
 }

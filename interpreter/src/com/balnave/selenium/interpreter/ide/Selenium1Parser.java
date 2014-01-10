@@ -34,7 +34,10 @@ public class Selenium1Parser implements ISeleneseParser {
                 //
                 // valid steps should have 3 parts
                 if (stepParts.size() == 3) {
-                    stepList.add(factory.buildStep(stepParts.toArray(new String[3])));
+                    IStep iStep = factory.buildStep(1, 1, stepParts.toArray(new Object[3]));
+                    if (iStep != null) {
+                        stepList.add(iStep);
+                    }
                 }
             }
         }
