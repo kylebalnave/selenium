@@ -1,4 +1,4 @@
-package com.balnave.selenium.steps;
+package com.balnave.selenium.interpreter.steps;
 
 /**
  * Interface for steps that can be tested

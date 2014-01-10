@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.balnave.selenium.ide;
+package com.balnave.selenium.interpreter.ide;
 
 /**
  *
