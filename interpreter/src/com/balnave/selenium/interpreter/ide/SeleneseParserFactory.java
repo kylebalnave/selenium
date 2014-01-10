@@ -1,15 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.balnave.selenium.interpreter.ide;
 
 /**
- *
+ * Decides which type of SlenesePaerser to use
  * @author balnave
  */
 public class SeleneseParserFactory {
+    
+    public ISeleneseParser getParser(String testCase) {
+        if(testCase.matches("^.*\\.(htm|html|xml)$")) {
+            return new Selenium1Parser();
+        } else if(testCase.matches("^.*\\.(json)$")) {
+            return new Selenium2Parser();
+        } 
+        return null;
+    }
     
 }

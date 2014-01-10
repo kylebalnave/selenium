@@ -1,6 +1,5 @@
 package com.balnave.selenium.interpreter.ide;
 
-import com.balnave.selenium.interpreter.ide.ISeleneseParser;
 import com.balnave.selenium.interpreter.steps.IStep;
 import java.util.List;
 
