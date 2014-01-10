@@ -1,9 +1,8 @@
 
 package com.balnave.selenium.steps;
 
+import com.balnave.selenium.testing.PseudoWebDriver;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 /**
  * Setup a Webdriver
@@ -18,7 +17,7 @@ public class SetupStep extends Step implements IStep{
     @Override
     public WebDriver run(WebDriver wd) {
         if(wd == null) {
-            wd = new HtmlUnitDriver(true);
+            wd = new PseudoWebDriver();
         }
         return wd;
     }

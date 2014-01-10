@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.balnave.selenium.steps;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import com.balnave.selenium.testing.PseudoWebDriver;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 /**
  *
@@ -24,16 +16,22 @@ public class SetupStepTest {
      * Test of run method, of class SetupStep.
      */
     @Test
-    public void testRun() throws InterruptedException {
-        System.out.println("run");
-        WebDriver wd = null;
+    public void testRunExistingDriver() throws InterruptedException {
+        System.out.println("testRunExistingDriver");
+        WebDriver wd = new HtmlUnitDriver(true);
         SetupStep instance = new SetupStep();
-        wd = instance.run(wd);
-        assertTrue(String.format("Expecting a WebDriver but got %s", wd), wd != null);
-        Thread.sleep(2000);
+        assertEquals(wd, instance.run(wd));
         if(wd != null) {
             wd.quit();
         }
+    }
+    
+    @Test
+    public void testRunCreatingDriver() throws InterruptedException {
+        System.out.println("testRunCreatingDriver");
+        WebDriver wd = null;
+        SetupStep instance = new SetupStep();
+        assertTrue(instance.run(wd) instanceof PseudoWebDriver);
     }
 
     /**
@@ -44,7 +42,6 @@ public class SetupStepTest {
         System.out.println("toJavaString");
         SetupStep instance = new SetupStep();
         String result = instance.toJavaString();
-        System.out.println(result);
         assertTrue(!result.isEmpty());
     }
     
