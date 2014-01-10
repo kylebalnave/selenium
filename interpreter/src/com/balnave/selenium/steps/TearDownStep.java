@@ -1,25 +1,28 @@
+
 package com.balnave.selenium.steps;
 
 import org.openqa.selenium.WebDriver;
 
 /**
- * Opens a URL
+ * TearDown a Webdriver
  * @author kyleb2
  */
-public class OpenStep extends Step implements IStep {
+public class TearDownStep extends Step implements IStep{
 
-    public OpenStep(Object[] args) {
+    public TearDownStep(Object[] args) {
         super(args);
     }
 
     @Override
     public void run(WebDriver wd) {
-        wd.get((String) getArg(1, null));
+        if(wd != null) {
+            wd.quit();
+        }
     }
 
     @Override
     public String toJavaString() {
-        return String.format("wd.get(\"%s\n\");", getArg(1, null));
+        return String.format("if(wd != null) { wd.quit; }");
     }
     
 }
