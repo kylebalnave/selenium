@@ -1,14 +1,14 @@
 package com.balnave.selenium.interpreter.ide;
 
-import com.balnave.selenium.interpreter.steps.Step;
+import com.balnave.selenium.interpreter.steps.IStep;
 import java.util.List;
 
 /**
  * Interface for all saved Selenium files
  * @author balnave
  */
-public interface SeleneseParser {
+public interface ISeleneseParser {
     
-    public List<Step> parse(String content);
+    public List<IStep> parse(String content);
     
 }
