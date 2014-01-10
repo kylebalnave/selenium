@@ -14,12 +14,16 @@ import java.net.URL;
  */
 public class URLReader extends StringReader {
 
+    public URLReader(String fileOrUrl) {
+        super(fileOrUrl);
+    }
+
     @Override
-    public String load(String fileToRead) {
+    public String load() {
         HttpURLConnection connection;
         StringBuilder content = new StringBuilder();
         try {
-            URL urlToLoad = new URL(fileToRead);
+            URL urlToLoad = new URL(fileOrUrl);
             connection = (HttpURLConnection) urlToLoad.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine;

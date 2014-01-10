@@ -11,12 +11,16 @@ import java.io.IOException;
  */
 public class FileReader extends StringReader {
 
+    public FileReader(String fileOrUrl) {
+        super(fileOrUrl);
+    }
+
     @Override
-    public String load(String pathToRead) {
+    public String load() {
         BufferedReader br;
         StringBuilder content = new StringBuilder();
         try {
-            br = new BufferedReader(new java.io.FileReader(pathToRead));
+            br = new BufferedReader(new java.io.FileReader(fileOrUrl));
             String line = br.readLine();
             while (line != null) {
                 content.append(String.format("\n%s", line));

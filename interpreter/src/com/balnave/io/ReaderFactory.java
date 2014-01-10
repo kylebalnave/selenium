@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.balnave.io;
 
 /**
- *
+ * Returns the correct Reader type
  * @author balnave
  */
 public class ReaderFactory {
+    
+    public StringReader getReader(String fileOrUrl) {
+        if(fileOrUrl.matches("^(http|https|ftp):\\/\\/.*$")) {
+            return new URLReader(fileOrUrl);
+        }
+        return new FileReader(fileOrUrl);
+    }
     
 }

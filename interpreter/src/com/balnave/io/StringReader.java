@@ -6,10 +6,15 @@ package com.balnave.io;
  */
 public abstract class StringReader {
     
+    protected final String fileOrUrl;
     protected String errorMsg;
     protected boolean success;
-            
-    public abstract String load(String fileToRead);
+
+    public StringReader(String fileOrUrl) {
+        this.fileOrUrl = fileOrUrl;
+    }
+     
+    public abstract String load();
     
     public boolean isReady() {
         return success == true;

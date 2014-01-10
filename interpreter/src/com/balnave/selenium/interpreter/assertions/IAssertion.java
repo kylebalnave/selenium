@@ -8,5 +8,5 @@ import com.balnave.selenium.interpreter.steps.IStep;
  */
 public interface IAssertion extends IStep {
     
-    public boolean test();
+    public boolean test(Object[] args);
 }
