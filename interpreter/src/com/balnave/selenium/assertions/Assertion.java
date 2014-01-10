@@ -6,17 +6,12 @@ import com.balnave.selenium.steps.Step;
  * The simplest assertion type
  * @author kyleb2
  */
-public abstract class Assertion extends Step implements IAssertion {
+public abstract class Assertion extends Step {
+    
+    Object valueToAssert;
 
-    public Assertion(Object[] args) {
-        super(args);
+    public Assertion(Object valueToAssert) {
+        this.valueToAssert = valueToAssert;
     }
-
-    @Override
-    public boolean test(Object[] args) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
     
 }
