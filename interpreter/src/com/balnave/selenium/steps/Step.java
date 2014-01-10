@@ -1,4 +1,6 @@
-package com.balnave.selenium.interpreter.steps;
+package com.balnave.selenium.steps;
+
+import com.balnave.selenium.steps.IStep;
 
 /**
  * The simplest Step

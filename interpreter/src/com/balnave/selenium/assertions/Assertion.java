@@ -1,6 +1,6 @@
-package com.balnave.selenium.interpreter.assertions;
+package com.balnave.selenium.assertions;
 
-import com.balnave.selenium.interpreter.steps.Step;
+import com.balnave.selenium.steps.Step;
 
 /**
  * The simplest assertion type

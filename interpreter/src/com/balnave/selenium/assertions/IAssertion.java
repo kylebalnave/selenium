@@ -1,6 +1,6 @@
-package com.balnave.selenium.interpreter.assertions;
+package com.balnave.selenium.assertions;
 
-import com.balnave.selenium.interpreter.steps.IStep;
+import com.balnave.selenium.steps.IStep;
 
 /**
  * Interface for steps that can be tested

@@ -1,7 +1,7 @@
 package com.balnave.selenium.interpreter.ide;
 
-import com.balnave.selenium.interpreter.steps.IStep;
-import com.balnave.selenium.interpreter.steps.StepFactory;
+import com.balnave.selenium.steps.IStep;
+import com.balnave.selenium.steps.StepFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;

@@ -1,4 +1,4 @@
-package com.balnave.selenium.interpreter.steps;
+package com.balnave.selenium.steps;
 
 import org.openqa.selenium.WebDriver;
 

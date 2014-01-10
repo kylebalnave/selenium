@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.balnave.selenium.interpreter.steps;
+package com.balnave.selenium.steps;
+
+import com.balnave.selenium.steps.IStep;
 
 /**
  *
