@@ -15,16 +15,17 @@ public class ClickAndWaitStep extends SelectionStep implements IStep {
 
     protected int waitSec = 10;
 
-    public ClickAndWaitStep(Object[] args) {
+    public ClickAndWaitStep(Object... args) {
         super(args);
     }
 
     @Override
-    public void run(WebDriver wd) {
+    public WebDriver run(WebDriver wd) {
         WebDriverWait wait = new WebDriverWait(wd, waitSec);
         wait.until(ExpectedConditions.elementToBeClickable(Selectors.select((String) getArg(1))));
         WebElement elem = selectElement(wd, (String) getArg(1));
         elem.click();
+        return wd;
     }
 
     @Override

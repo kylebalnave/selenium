@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
  */
 public abstract class SelectionStep extends Step implements IStep {
 
-    public SelectionStep(Object[] args) {
+    public SelectionStep(Object... args) {
         super(args);
     }
 

@@ -8,13 +8,14 @@ import org.openqa.selenium.WebDriver;
  */
 public class OpenStep extends Step implements IStep {
 
-    public OpenStep(Object[] args) {
+    public OpenStep(Object... args) {
         super(args);
     }
 
     @Override
-    public void run(WebDriver wd) {
+    public WebDriver run(WebDriver wd) {
         wd.get((String) getArg(1, null));
+        return wd;
     }
 
     @Override

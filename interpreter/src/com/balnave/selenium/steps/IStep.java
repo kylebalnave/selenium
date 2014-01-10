@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
  */
 public interface IStep {
     
-    public void run(WebDriver wd);
+    public WebDriver run(WebDriver wd);
     
     public String toJavaString();
     

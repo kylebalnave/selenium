@@ -6,15 +6,13 @@
 
 package com.balnave.selenium.steps;
 
-import com.balnave.selenium.steps.IStep;
-
 /**
  *
  * @author kyleb2
  */
 public class StepFactory {
     
-    public IStep buildStep(String[] args) {
+    public IStep buildStep(String... args) {
         String stepName = args[0];
         if(stepName.equals("open")) {
             return new OpenStep(args);

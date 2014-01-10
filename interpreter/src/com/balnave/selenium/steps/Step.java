@@ -8,7 +8,7 @@ public abstract class Step implements IStep {
     
     protected Object[] args;
     
-    public Step(Object[] args) {
+    public Step(Object... args) {
         this.args = args;
     }
  

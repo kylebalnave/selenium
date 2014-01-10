@@ -9,15 +9,16 @@ import org.openqa.selenium.WebDriver;
  */
 public class TearDownStep extends Step implements IStep{
 
-    public TearDownStep(Object[] args) {
+    public TearDownStep(Object... args) {
         super(args);
     }
 
     @Override
-    public void run(WebDriver wd) {
+    public WebDriver run(WebDriver wd) {
         if(wd != null) {
             wd.quit();
         }
+        return wd;
     }
 
     @Override

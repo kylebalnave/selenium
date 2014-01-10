@@ -9,14 +9,15 @@ import org.openqa.selenium.WebElement;
  */
 public class ClickStep extends SelectionStep implements IStep {
 
-    public ClickStep(Object[] args) {
+    public ClickStep(Object... args) {
         super(args);
     }
 
     @Override
-    public void run(WebDriver wd) {
+    public WebDriver run(WebDriver wd) {
         WebElement elem = selectElement(wd, (String) getArg(1));
         elem.click();
+        return wd;
     }
 
     @Override

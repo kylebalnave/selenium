@@ -9,14 +9,15 @@ import org.openqa.selenium.WebElement;
  */
 public class TypeStep extends SelectionStep implements IStep {
 
-    public TypeStep(Object[] args) {
+    public TypeStep(Object... args) {
         super(args);
     }
 
     @Override
-    public void run(WebDriver wd) {
+    public WebDriver run(WebDriver wd) {
         WebElement elem = selectElement(wd, (String) getArg(1));
         elem.sendKeys((CharSequence[]) getArg(2));
+        return wd;
     }
 
     @Override
