@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.balnave.selenium;
 
 /**
- *
+ * Reads a Selenese TestCase from SeleniumIDE or SeleniumBuilder and executes.
  * @author balnave
  */
 public class Interpreter {
@@ -19,7 +13,8 @@ public class Interpreter {
         // TODO code application logic here
     }
 
-    public Interpreter() {
+    public Interpreter(String testCasePathOrUrl) {
+        
     }
     
     

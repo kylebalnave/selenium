@@ -1,7 +1,7 @@
 package com.balnave.io;
 
 /**
- * Abstract Class to read a file
+ * Abstract Class to read the contents of a file
  * @author balnave
  */
 public abstract class StringReader {

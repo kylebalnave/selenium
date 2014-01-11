@@ -4,7 +4,7 @@ import static junit.framework.TestCase.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 /**
- *
+ * Asserts the WebDriver url
  * @author balnave
  */
 public class UrlEqualsAssertion extends Assertion {

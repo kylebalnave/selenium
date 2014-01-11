@@ -1,7 +1,7 @@
 package com.balnave.io;
 
 /**
- * Returns the correct Reader type
+ * Returns a StringReader
  * @author balnave
  */
 public class ReaderFactory {

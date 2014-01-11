@@ -1,37 +1,49 @@
 package com.balnave.selenium.steps;
 
+import com.balnave.selenium.exceptions.StepException;
+
 /**
  * Creates ISteps
+ *
  * @author kyleb2
  */
 public class StepFactory {
 
-    public IStep buildStep(int seleniumVersion, int formatVersion, Object... args) {
+    public IStep buildStep(int seleniumVersion, int formatVersion, Object... args) throws StepException {
         IStep step = null;
         if (seleniumVersion == 1) {
             step = buildSelenium1Step(args);
         } else if (seleniumVersion == 2 && formatVersion == 1) {
             step = buildSelenium2Format1Step(args);
-        } else if (seleniumVersion == 2 && formatVersion == 2) {
-            step = buildSelenium2Format2Step(args);
+        } else {
+            throw new StepException(String.format("Cannot find any Steps for Selenium %s, format %s", seleniumVersion, formatVersion));
         }
         return step;
     }
 
-    private IStep buildSelenium1Step(Object... args) {
+    /**
+     * Creates Selenium1Steps
+     *
+     * @param args
+     * @return
+     */
+    private IStep buildSelenium1Step(Object... args) throws StepException {
         String stepName = (String) args[0];
         if (stepName.equals("open")) {
             return new OpenStep(args);
+        } else {
+            throw new StepException(String.format("Cannot find Selenium 1 step with name %s", (String) args[0]));
         }
-        return null;
     }
 
-    private IStep buildSelenium2Format1Step(Object... args) {
-        return null;
-    }
-    
-    private IStep buildSelenium2Format2Step(Object... args) {
-        return null;
+    /**
+     * Creates Selenium2Steps with format 1
+     *
+     * @param args
+     * @return
+     */
+    private IStep buildSelenium2Format1Step(Object... args) throws StepException {
+        throw new StepException(String.format("Cannot find Selenium 2 format 1 step with name %s", (String) args[0]));
     }
 
 }

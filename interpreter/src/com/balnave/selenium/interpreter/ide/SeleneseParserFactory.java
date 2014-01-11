@@ -1,18 +1,22 @@
 package com.balnave.selenium.interpreter.ide;
 
+import com.balnave.selenium.exceptions.InvalidSeleneseException;
+import com.balnave.selenium.exceptions.ParserException;
+
 /**
- * Decides which type of SlenesePaerser to use
+ * Returns a SeleneseParser
  * @author balnave
  */
 public class SeleneseParserFactory {
     
-    public ISeleneseParser getParser(String testCase) {
-        if(testCase.matches("^.*\\.(htm|html|xml)$")) {
+    public ISeleneseParser getParser(String testCasePath) throws ParserException {
+        if(testCasePath.matches("^.*\\.(htm|html)$")) {
             return new Selenium1Parser();
-        } else if(testCase.matches("^.*\\.(json)$")) {
+        } else if(testCasePath.matches("^.*\\.(json)$")) {
             return new Selenium2Parser();
-        } 
-        return null;
+        } else {
+            throw new ParserException(String.format("Cannot create parser for %s.  Each Selenese TestCase should be a HTML or JSON file", testCasePath));
+        }
     }
     
 }
