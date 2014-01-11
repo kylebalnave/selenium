@@ -13,7 +13,6 @@ import com.balnave.selenium.steps.OpenStep;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
