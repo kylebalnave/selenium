@@ -1,8 +1,9 @@
 package com.balnave.selenium.steps;
 
 import com.balnave.selenium.testing.PseudoWebDriver;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 

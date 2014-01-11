@@ -1,6 +1,5 @@
 package com.balnave.selenium.interpreter.ide;
 
-import com.balnave.selenium.exceptions.InvalidSeleneseException;
 import com.balnave.selenium.exceptions.ParserException;
 
 /**

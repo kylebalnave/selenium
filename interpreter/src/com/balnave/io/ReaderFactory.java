@@ -7,10 +7,12 @@ package com.balnave.io;
 public class ReaderFactory {
     
     public StringReader getReader(String fileOrUrl) {
+        StringReader reader;
         if(fileOrUrl.matches("^(http|https|ftp):\\/\\/.*$")) {
-            return new URLReader(fileOrUrl);
+            reader = new URLReader(fileOrUrl);
         }
-        return new FileReader(fileOrUrl);
+        reader = new FileReader(fileOrUrl);
+        return reader;
     }
     
 }

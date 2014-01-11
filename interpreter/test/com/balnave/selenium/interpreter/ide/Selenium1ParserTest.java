@@ -7,8 +7,8 @@ package com.balnave.selenium.interpreter.ide;
 
 import com.balnave.selenium.steps.IStep;
 import java.util.List;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

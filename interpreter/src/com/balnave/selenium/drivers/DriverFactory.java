@@ -12,9 +12,9 @@ public class DriverFactory {
 
     public WebDriver getDriver(Object... args) throws MalformedURLException {
         String type = ((String) args[0]).toLowerCase();
-        String gridHubUrl = null;
-        Object options = null;
-        if (args.length == 2) {
+        if (args.length == 1) {
+            getLocalDriver(type, null);
+        } else if (args.length == 2) {
             // 2nd arg is options or grid url
             if(args[1] instanceof String) {
                 getRemoteDriver(type, (String) args[1]);

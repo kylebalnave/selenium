@@ -14,13 +14,6 @@ public final class WebDriverExecutor {
     protected WebDriver wd;
     protected List<IStep> steps;
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-
     public WebDriverExecutor(WebDriver wd, List<IStep> steps) {
         this.wd = wd;
         this.steps = steps;

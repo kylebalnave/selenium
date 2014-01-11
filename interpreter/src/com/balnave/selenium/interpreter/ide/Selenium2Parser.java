@@ -10,8 +10,6 @@ import com.json.parsers.JsonParserFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Selenium 2 (aka Selenium Builder) json parser
