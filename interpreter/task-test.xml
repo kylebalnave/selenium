@@ -3,7 +3,7 @@
     <description>Tests the SeleniumInterpreterTask</description>
     <target name="default" description="Use the Task">
         <taskdef name="selenium-interpreter" classname="org.apache.ant.SeleniumInterpreterTask" classpath="./dist/Interpreter.jar"/>
-        <selenium-interpreter outDir="">
+        <selenium-interpreter outDir="junit">
             <fileset dir="src">
                 <include name="**/*.java"/>
                 <exclude name="**/selenium/**/*.java"/>
