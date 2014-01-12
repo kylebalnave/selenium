@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Interpreter" default="default" basedir=".">
+    <description>Tests the SeleniumInterpreterTask</description>
+    <target name="default" description="Use the Task">
+        <taskdef name="selenium-interpreter" classname="org.apache.ant.SeleniumInterpreterTask" classpath="./dist/Interpreter.jar"/>
+        <selenium-interpreter outDir="">
+            <fileset dir="src">
+                <include name="**/*.java"/>
+                <exclude name="**/selenium/**/*.java"/>
+            </fileset>
+        </selenium-interpreter>
+    </target>
+</project>
