@@ -7,13 +7,18 @@ import java.io.IOException;
 
 /**
  * Writes a String to a file
+ *
  * @author balnave
  */
 public class StringWriter {
 
     public boolean write(File file, String content) {
         try {
-
+            String dirPath = file.getAbsolutePath().replace(file.getName(), "");
+            File dir = new File(dirPath);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
             // if file doesnt exists, then create it
             if (!file.exists()) {
                 file.createNewFile();
@@ -24,7 +29,8 @@ public class StringWriter {
             bw.write(content);
             bw.close();
 
-        } catch (IOException e) {
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
             return false;
         }
         return true;

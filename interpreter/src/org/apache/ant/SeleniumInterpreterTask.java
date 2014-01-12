@@ -55,9 +55,6 @@ public class SeleniumInterpreterTask extends Task {
                     FileResource fileResource = (FileResource) iterator.next();
                     File fileIn = fileResource.getFile();
                     boolean success = generateJunitFile(fileResource, jUnitOutDir);
-                    if (!success) {
-                        log(String.format("Cannot generate junit file using %s", fileIn.getAbsolutePath()));
-                    }
                 }
             }
         }
@@ -71,12 +68,15 @@ public class SeleniumInterpreterTask extends Task {
     private boolean generateJunitFile(FileResource fileResourceIn, File baseDirOut) {
         JUnitTplFile jUnitFile = new JUnitTplFile(fileResourceIn, baseDirOut);
         String jUnitOutContent = createJunitContent(jUnitTplPath,
+                                                    jUnitFile.getPackagePath(),
                                                     jUnitFile.getMethodName(), 
                                                     jUnitFile.getClassName(),
-                                                    jUnitFile.getJUnitFile());
-        System.out.println(jUnitFile.getJUnitFile().getAbsolutePath());
-        return false;
-        //return new StringWriter().write(jUnitFile.getJUnitFile(), jUnitOutContent);
+                                                    jUnitFile.getSelenesePath());
+        boolean success = new StringWriter().write(jUnitFile.getJUnitFile(), jUnitOutContent);
+        if (!success) {
+            log(String.format("Cannot generate junit file %s from selenese file %s", jUnitFile.getJUnitFile().getAbsolutePath(), fileResourceIn.getFile().getAbsolutePath()));
+        }
+        return success;
     }
 
     /**
@@ -87,10 +87,10 @@ public class SeleniumInterpreterTask extends Task {
      * @param selenesePath
      * @return 
      */
-    private String createJunitContent(String resourcePath, String packagePath, String className, File selenesePath) {
+    private String createJunitContent(String resourcePath, String packagePath, String className, String methodName, String selenesePath) {
         ResourceReader reader = new ResourceReader(resourcePath);
         String jUnitTplContent = reader.load();
-        return String.format(jUnitTplContent, packagePath, className, className, selenesePath.getAbsolutePath());
+        return String.format(jUnitTplContent, packagePath, className, methodName, selenesePath, "%s", "%s");
     }
 }
 
@@ -107,18 +107,21 @@ class JUnitTplFile {
         File baseDirIn = fileResourceIn.getBaseDir();
         String fileNameIn = fileIn.getName();
         String fileName = fileNameIn.split("\\.")[0];
-        String fileNameOut = fileName.substring(0, 1).toUpperCase() + fileName.substring(1) + ".java";
+        String fileNameOut = fileName.substring(0, 1).toUpperCase() + fileName.substring(1) + "Test.java";
         String filePathOut = fileIn.getAbsolutePath().
                 replace(baseDirIn.getAbsolutePath(), "").
                 replace(fileNameIn, fileNameOut);
-        File fileOut = new File(baseDirIn, filePathOut);
+        File fileOut = new File(baseDirOut, filePathOut);
         packagePath = fileIn.getAbsolutePath().
                 replace(baseDirIn.getAbsolutePath(), "").
                 replace(fileNameIn, "").
-                replaceAll("/\\/|\\/", ".");
+                replace("\\", ".").
+                replace("/", ".").
+                replaceAll("^\\.", "").
+                replaceAll("\\.$", "");
         className = fileNameOut.split("\\.")[0];
-        methodName = className.substring(0, 1).toLowerCase() + className.substring(1);
-        selenesePath = fileIn.getAbsolutePath();
+        methodName = className;
+        selenesePath = fileIn.getAbsolutePath().replace("\\", "\\\\");
         jUnitFile = fileOut;
     }
 

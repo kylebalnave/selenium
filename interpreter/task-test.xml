@@ -4,9 +4,9 @@
     <target name="default" description="Use the Task">
         <taskdef name="selenium-interpreter" classname="org.apache.ant.SeleniumInterpreterTask" classpath="./dist/Interpreter.jar"/>
         <selenium-interpreter outDir="junit" jUnitTplPath="/com/selenium/resources/junit3.tpl">
-            <fileset dir="src">
-                <include name="**/*.java"/>
-                <exclude name="**/selenium/**/*.java"/>
+            <fileset dir="test">
+                <include name="assets/selenium*"/>
+                <exclude name="assets/selenium/**/*.java"/>
             </fileset>
         </selenium-interpreter>
     </target>

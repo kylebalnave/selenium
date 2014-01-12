@@ -26,13 +26,21 @@ public class Selenium2Parser implements ISeleneseParser {
         JsonParserFactory factory = JsonParserFactory.getInstance();
         JSONParser parser = factory.newJsonParser();
         Map jsonMap = parser.parseJson(content);
-        if (jsonMap.containsKey("seleniumVersion") && jsonMap.containsKey("formatVersion")) {
+        if (jsonMap.containsKey("seleniumVersion") &&
+                jsonMap.containsKey("formatVersion") &&
+                jsonMap.get("steps") instanceof List) {
             List<Map> jsonSteps = (List<Map>) jsonMap.get("steps");
             for (Map jsonStep : jsonSteps) {
                 List stepParts = new ArrayList();
-                stepParts.add(jsonStep.get("type"));
-                stepParts.add(jsonStep.get("negated"));
-                stepParts.add(jsonStep.get("locator"));
+                if(jsonStep.containsKey("type")){
+                    stepParts.add(jsonStep.get("type"));
+                }
+                if(jsonStep.containsKey("negated")){
+                    stepParts.add(jsonStep.get("negated"));
+                }
+                if(jsonStep.containsKey("locator")){
+                    stepParts.add(jsonStep.get("locator"));
+                }
                 for (Object key : jsonStep.keySet()) {
                     // add any additional values
                     if (!key.equals("type") && !key.equals("negated") && !key.equals("locator")) {
