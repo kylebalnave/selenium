@@ -26,8 +26,9 @@ public class Interpreter {
      * @param args the command line arguments
      */
     public static void main(String... args) {
-        System.out.println("Usage: [--driver.type=<drivername] [--driver.hub=<drivername] <script path>...");
+        System.out.println("Usage: [--driver.type=<drivername] [--driver.hub=<drivername] [--junit.outj=<drivername] <script path>...");
         System.out.println(args.length);
+        //@TODO validate the args
         for (String s : args) {
             System.out.println(s);
         }
