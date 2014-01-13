@@ -1,5 +1,6 @@
 package com.selenium.steps;
 
+import com.selenium.exceptions.StepException;
 import com.selenium.steps.helpers.Selectors;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,27 +16,23 @@ public class ClickAndWaitStep extends SelectionStep implements IStep {
 
     protected int waitSec = 10;
 
-    public ClickAndWaitStep(Object... args) {
+    public ClickAndWaitStep(Object... args) throws StepException {
         super(args);
     }
 
     @Override
     public WebDriver run(WebDriver wd) {
         WebDriverWait wait = new WebDriverWait(wd, waitSec);
-        wait.until(ExpectedConditions.elementToBeClickable(Selectors.select((String) getArg(1))));
-        WebElement elem = selectElement(wd, (String) getArg(1));
+        wait.until(ExpectedConditions.elementToBeClickable(Selectors.select(param1)));
+        WebElement elem = selectElement(wd, param1);
         elem.click();
         return wd;
     }
 
     @Override
 
-    public String toJavaString() {
-        return String.format("%s\n%s\n%s\n",
-                String.format("org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(wd, %s);", (String) getArg(1)),
-                String.format("wait.until(org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable(com.selenium.steps.helpers.Selectors.select(\"%s\")));", (String) getArg(1)),
-                String.format("org.openqa.selenium.WebElement elem = selectElement(wd, \"%s\");", (String) getArg(1)),
-                String.format("elem.click();"));
+    public String getDescription() {
+        return String.format("Wait for element %s to be available, then click.", param1);
     }
 
 }

@@ -10,6 +10,6 @@ public interface IStep {
     
     public WebDriver run(WebDriver wd);
     
-    public String toJavaString();
+    public String getDescription();
     
 }

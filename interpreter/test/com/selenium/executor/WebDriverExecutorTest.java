@@ -8,6 +8,7 @@ package com.selenium.executor;
 
 import com.selenium.WebDriverExecutor;
 import com.selenium.assertions.UrlEqualsAssertion;
+import com.selenium.exceptions.StepException;
 import com.selenium.steps.IStep;
 import com.selenium.steps.OpenStep;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 public class WebDriverExecutorTest {
     
     @Test
-    public void testSetup() {
+    public void testSetup() throws StepException {
         System.out.println("setup");
         WebDriver wd = new HtmlUnitDriver(true);
         List<IStep> steps = new ArrayList<IStep>();

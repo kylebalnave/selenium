@@ -1,5 +1,6 @@
 package com.selenium.steps;
 
+import com.selenium.exceptions.StepException;
 import com.selenium.steps.helpers.Selectors;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,9 @@ import org.openqa.selenium.WebElement;
  *
  * @author kyleb2
  */
-public abstract class SelectionStep extends Step implements IStep {
+public abstract class SelectionStep extends Selenium1Step implements IStep {
 
-    public SelectionStep(Object... args) {
+    public SelectionStep(Object... args) throws StepException {
         super(args);
     }
 

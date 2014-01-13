@@ -1,5 +1,6 @@
 package com.selenium.steps;
 
+import com.selenium.exceptions.StepException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -9,22 +10,20 @@ import org.openqa.selenium.WebElement;
  */
 public class TypeStep extends SelectionStep implements IStep {
 
-    public TypeStep(Object... args) {
+    public TypeStep(Object... args) throws StepException {
         super(args);
     }
 
     @Override
     public WebDriver run(WebDriver wd) {
-        WebElement elem = selectElement(wd, (String) getArg(1));
-        elem.sendKeys((CharSequence[]) getArg(2));
+        WebElement elem = selectElement(wd, param1);
+        elem.sendKeys(param2);
         return wd;
     }
 
     @Override
-    public String toJavaString() {
-        return String.format("%s\n%s\n", 
-                String.format("org.openqa.selenium.WebElement elem = selectElement(wd, \"%s\");", (String) getArg(1)),
-                String.format("elem.sendKeys((CharSequence[]) \"%s\");", (String) getArg(2)));
+    public String getDescription() {
+        return String.format("Select element %s, then type %s.", param1, param2);
     }
     
 }

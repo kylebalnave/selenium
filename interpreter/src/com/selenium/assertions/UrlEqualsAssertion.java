@@ -1,6 +1,6 @@
 package com.selenium.assertions;
 
-import static junit.framework.TestCase.assertEquals;
+import static com.thoughtworks.selenium.SeleneseTestCase.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -20,8 +20,8 @@ public class UrlEqualsAssertion extends Assertion {
     }
 
     @Override
-    public String toJavaString() {
-        return String.format("junit.framework.TestCase.assertEquals(wd.getCurrentUrl(), \"%s\";", getArg(1, null));
+    public String getDescription() {
+        return String.format("Assert url %s equals current WebDriver url.", getArg(1, null));
     }
     
 }
