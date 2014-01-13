@@ -30,7 +30,7 @@ public class StepFactory {
     private IStep buildSelenium1Step(Object... args) throws StepException {
         String stepName = (String) args[0];
         if (stepName.equals("open")) {
-            return new OpenStep(args);
+            return null;
         } else {
             throw new StepException(String.format("Cannot find Selenium 1 step with name %s", (String) args[0]));
         }

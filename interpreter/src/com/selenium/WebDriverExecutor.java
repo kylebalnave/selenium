@@ -36,7 +36,7 @@ public final class WebDriverExecutor {
     }
 
     public void doForEachStep(IStep step) {
-        wd = step.run(wd);
+        step.run();
     }   
     
     

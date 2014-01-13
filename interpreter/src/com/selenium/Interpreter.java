@@ -1,7 +1,5 @@
 package com.selenium;
 
-import common.io.ReaderFactory;
-import common.io.StringReader;
 import com.selenium.drivers.DriverFactory;
 import com.selenium.exceptions.InterpreterException;
 import com.selenium.exceptions.InvalidSeleneseException;
@@ -9,6 +7,8 @@ import com.selenium.exceptions.ParserException;
 import com.selenium.interpreter.ide.ISeleneseParser;
 import com.selenium.interpreter.ide.SeleneseParserFactory;
 import com.selenium.steps.IStep;
+import common.io.ReaderFactory;
+import common.io.StringReader;
 import java.net.MalformedURLException;
 import java.util.List;
 import java.util.logging.Logger;

@@ -1,6 +1,5 @@
 package com.selenium.assertions;
 
-import static com.thoughtworks.selenium.SeleneseTestCase.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -9,19 +8,19 @@ import org.openqa.selenium.WebDriver;
  */
 public class UrlEqualsAssertion extends Assertion {
 
-    public UrlEqualsAssertion(Object valueToAssert) {
-        super(valueToAssert);
-    }
-
-    @Override
-    public WebDriver run(WebDriver wd) {
-        assertEquals(valueToAssert, wd.getCurrentUrl());
-        return wd;
+    public UrlEqualsAssertion(WebDriver wd, Object... args) {
+        super(wd, args);
     }
 
     @Override
     public String getDescription() {
-        return String.format("Assert url %s equals current WebDriver url.", getArg(1, null));
+        return String.format("Comparing url %s to the current WebDriver url %s", args[0], wd.getCurrentUrl());
     }
+
+    @Override
+    public boolean test() {
+        return wd.getCurrentUrl().equals(args[0]);
+    }
+
     
 }

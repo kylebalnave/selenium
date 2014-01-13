@@ -1,7 +1,7 @@
 package com.selenium.steps.selenium1;
 
-import com.selenium.steps.*;
-import com.selenium.exceptions.StepException;
+import com.selenium.steps.IStep;
+import com.selenium.steps.Step;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -9,12 +9,14 @@ import org.openqa.selenium.WebDriver;
  */
 public class AddLocationStrategy extends Step implements IStep {
 
-    public AddLocationStrategy(Object... args) throws StepException {
-        super(args);
+    
+    public AddLocationStrategy(WebDriver wd, Object... args) {
+        super(wd, args);
     }
 
+
     @Override
-    public WebDriver run(WebDriver wd) {
+    public Object run() {
         return wd;
     }
 

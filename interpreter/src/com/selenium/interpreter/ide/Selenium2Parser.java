@@ -1,12 +1,12 @@
 package com.selenium.interpreter.ide;
 
+import com.json.parsers.JSONParser;
+import com.json.parsers.JsonParserFactory;
 import com.selenium.exceptions.InvalidSeleneseException;
 import com.selenium.exceptions.ParserException;
 import com.selenium.exceptions.StepException;
 import com.selenium.steps.IStep;
 import com.selenium.steps.StepFactory;
-import com.json.parsers.JSONParser;
-import com.json.parsers.JsonParserFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
