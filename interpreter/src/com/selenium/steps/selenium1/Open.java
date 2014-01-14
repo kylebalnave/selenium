@@ -1,27 +1,28 @@
 package com.selenium.steps.selenium1;
 
 import com.selenium.exceptions.StepException;
-import com.selenium.steps.IStep;
-import com.selenium.steps.Step;
+import com.selenium.steps.*;
+import com.selenium.steps.Selenium1Step;
 import org.openqa.selenium.WebDriver;
 
 /**
  * @author kyleb2
  */
-public class Open extends Step implements IStep {
+public class Open extends Selenium1Step implements IStep {
 
-    public Open(WebDriver wd, Object... args) throws StepException {
-        super(wd, args);
+    public Open(WebDriver wd, String param1, String param2) throws StepException {
+        super(wd, param1, param2);
     }
 
     @Override
     public Object run() {
-        return wd;
+        wd.get(param1);
+        return null;
     }
 
     @Override
     public String getDescription() {
-        return String.format("@TODO add description");
+        return String.format("Load url %s", param1);
     }
     
 }

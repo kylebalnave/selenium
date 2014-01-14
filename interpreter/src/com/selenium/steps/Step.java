@@ -17,10 +17,12 @@ public abstract class Step implements IStep {
         this.args = args;
     }
 
+    @Override
     public WebDriver getDriver() {
         return wd;
     }
 
+    @Override
     public Object[] getArgs() {
         return args;
     }

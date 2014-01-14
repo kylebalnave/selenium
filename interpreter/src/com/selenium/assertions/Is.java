@@ -6,11 +6,11 @@ import com.selenium.steps.IStep;
  *
  * @author balnave
  */
-public abstract class Is implements ITest, IStep {
+public abstract class Is implements IVerify, IStep {
     
-    ITest test;
+    IVerify test;
     
-    public Is (ITest test) {
+    public Is (IVerify test) {
         this.test = test;
     }
 

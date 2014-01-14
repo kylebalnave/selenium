@@ -6,9 +6,9 @@ import com.selenium.steps.IStep;
  *
  * @author balnave
  */
-public abstract class IsNot extends Is implements ITest, IStep {
+public abstract class IsNot extends Is implements IVerify, IStep {
     
-    public IsNot (ITest test) {
+    public IsNot (IVerify test) {
         super(test);
     }
 

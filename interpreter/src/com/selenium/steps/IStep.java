@@ -1,5 +1,6 @@
 package com.selenium.steps;
 
+import com.selenium.exceptions.StepException;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebDriver;
  */
 public interface IStep {
 
-    public Object run();
+    public Object run() throws StepException;
 
     public String getDescription();
 

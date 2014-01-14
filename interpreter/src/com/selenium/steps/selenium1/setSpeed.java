@@ -1,17 +1,16 @@
 package com.selenium.steps.selenium1;
 
 import com.selenium.exceptions.StepException;
-import com.selenium.steps.IStep;
-import com.selenium.steps.Step;
+import com.selenium.steps.*;
 import org.openqa.selenium.WebDriver;
 
 /**
  * @author kyleb2
  */
-public class setSpeed extends Step implements IStep {
+public class setSpeed extends Selenium1Step implements IStep {
 
-    public setSpeed(WebDriver wd, Object... args) throws StepException {
-        super(wd, args);
+    public setSpeed(WebDriver wd, String param1, String param2) throws StepException {
+        super(wd, param1, param2);
     }
 
     @Override
@@ -21,7 +20,7 @@ public class setSpeed extends Step implements IStep {
 
     @Override
     public String getDescription() {
-        return String.format("@TODO add description");
+        return String.format("Unsupported Step %s", getClass().getName());
     }
     
 }

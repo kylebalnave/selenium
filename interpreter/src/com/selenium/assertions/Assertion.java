@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
  * The Abstract Class
  * @author kyleb2
  */
-public abstract class Assertion extends Step implements IStep, ITest {
+public abstract class Assertion extends Step implements IStep, IVerify {
 
     public Assertion(WebDriver wd, Object... args) {
         super(wd, args);
